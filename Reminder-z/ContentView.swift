@@ -9,7 +9,7 @@ struct ContentView: View {
                 Spacer()
 
                 Menu {
-                    SettingsLink {
+                    PreferencesButton {
                         Text("Preferences…")
                     }
 
@@ -85,5 +85,19 @@ struct ContentView: View {
         }
         .padding(32)
         .frame(minWidth: 380, minHeight: 500)
+    }
+}
+
+private struct PreferencesButton<Label: View>: View {
+    @Environment(\.openSettings) private var openSettings
+    let label: () -> Label
+
+    var body: some View {
+        Button {
+            openSettings()
+            NSApp.activate(ignoringOtherApps: true)
+        } label: {
+            label()
+        }
     }
 }
