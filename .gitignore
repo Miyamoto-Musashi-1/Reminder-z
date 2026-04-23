@@ -1,0 +1,7 @@
+# Xcode user-specific state
+*.xcuserstate
+xcuserdata/
+
+# Local build products
+DerivedData/
+build/
